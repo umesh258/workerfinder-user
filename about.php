@@ -173,57 +173,8 @@ if(!isset($_SESSION['uid']))
 						</div>
 					</div>
 
-					<div class="section-light section-no-bottom-margin">
-						<div class="spacer"></div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="icon-box">
-									<div class="icon">
-										<i class="fa fa-paint-brush"></i>
-									</div>
-									<div class="icon-box-body">
-										<h4>Painting</h4>
-										We've painted thousands of living rooms, kitchens and everything in between.
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="icon-box circled icon-box-animated">
-									<div class="icon">
-										<i class="fa fa-bolt"></i>
-									</div>
-									<div class="icon-box-body">
-										<h4>Electrical</h4>
-										Providing a first class reliable service in all fields of electrical.
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="icon-box squared icon-box-animated">
-									<div class="icon">
-										<i class="fa fa-wrench"></i>
-									</div>
-									<div class="icon-box-body">
-										<h4>General Contracting</h4>
-										We develop special tailor-made solutions in collaboration with our customers.
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="call-to-action centered cta__fullwidth cta__overlay cta__overlay-opacity-75 cta-overlay-color__dark cta-bg2" data-stellar-background-ratio="0.5">
-						<div class="cta-inner">
-							<div class="cta-txt">
-								<h2>The Best Professionals</h2>
-								<p>Select a project category that best matches your home repair or improvement need</p>
-							</div>
-							<div class="cta-btn">
-								<a href="#" class="btn btn-primary">Get Started!</a>
-							</div>
-						</div>
-					</div>
-
+					
+				
 					<div class="spacer-xl"></div>
 
 					<div class="row">
