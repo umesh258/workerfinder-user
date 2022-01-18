@@ -312,7 +312,17 @@ if(!isset($_SESSION['uid']))
 													</form>
 								<button onclick="window.location='workerlogin.php';" class="btn btn-primary btn-inline" type="submit">Worker Login</button>
 							</div>
-							<?php  }  ?>
+							<?php  }else
+							{ ?>
+								<div class="box box__color-darken mb-30">
+								<form method="get" action="login.php">
+									
+									<?php echo "<button class='btn btn-primary btn-inline' type='submit'>Book</button>"; ?>
+									
+													</form>
+								<button onclick="window.location='workerlogin.php';" class="btn btn-primary btn-inline" type="submit">Worker Login</button>
+							</div>
+						<?php	}  ?>
 							
 							<div class="box box__color-darken mb-30">
 								<h4>Social Profiles</h4>
