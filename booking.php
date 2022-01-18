@@ -19,16 +19,29 @@ if(isset($_POST['bsubmit']))
     $filepath = $_FILES['photo']['name'];
     $filelocation = $_FILES['photo']['tmp_name'];
      
-    
-    
-    $biq = mysqli_query($con,"insert into tbl_bookingmaster (date,user_id,worker_id,book_date,book_time,book_problemdetails,book_charges,book_photo,status)
+	if($_FILES['photo']['name'] != '')
+	{
+		$biq = mysqli_query($con,"insert into tbl_bookingmaster (date,user_id,worker_id,book_date,book_time,book_problemdetails,book_charges,book_photo,status)
      values('{$date}','{$uid}','{$wid}','{$bdate}','{$time}','{$pblm}','{$charges}','{$filepath}','1')") or die("Erro biq".mysqli_error($con));
      
-     if($biq)
-     {
-         move_uploaded_file($filelocation , "bookingimg/".$filepath);    
-         echo "<script>alert('Booking Success Shortly Time to Admin Answer !');window.location='jobdashboard.php';</script>";
-     }
+			if($biq)
+			{
+				move_uploaded_file($filelocation , "bookingimg/".$filepath);    
+				echo "<script>alert('Booking Success Shortly Time to Admin Answer !');window.location='jobdashboard.php';</script>";
+			}
+	}else
+	{
+		$biq = mysqli_query($con,"insert into tbl_bookingmaster (date,user_id,worker_id,book_date,book_time,book_problemdetails,book_charges,book_photo,status)
+     values('{$date}','{$uid}','{$wid}','{$bdate}','{$time}','{$pblm}','{$charges}','No img','1')") or die("Erro biq".mysqli_error($con));
+				if($biq)
+				{
+					    
+					echo "<script>alert('Booking Success Shortly Time to Admin Answer !');window.location='jobdashboard.php';</script>";
+				}
+	}
+    
+    
+    
 }
     
 
