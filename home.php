@@ -146,27 +146,28 @@ if(!isset($_SESSION['uid']))
 						<div class="container">
 							<div class="search-box-inner">
 								<h1>Search for Professionals</h1>
-								<form method="POST" role="form">
-
+								<form method="GET" role="form">
+								
 									<div class="row">
 										<div class="col-md-3 col-md-offset-1">
 											<div class="form-group">
 												<select name="worker" class="form-control">
 													<option>All Professional</option>
-
+													
 													<?php
 
 															$wsq = mysqli_query($con,"select * from tbl_workermaster")or die("Error WSQ".mysqli_error($con));
 															$wcount = mysqli_num_rows($wsq);
 															while($wfr = mysqli_fetch_array($wsq))
 															{
-																echo "<option value='{$wfr['worker_id']}'>{$wfr['worker_name']}</option>";
+																echo "<option value='{$wfr['worker_id']}'> {$wfr['worker_name']}</option>";
 															}
 
-
+															
 
 														?>
 											</select>
+										
 											</div>
 										</div>
 										<div class="col-md-3">
@@ -285,7 +286,15 @@ if(!isset($_SESSION['uid']))
 					</div>
 					<div class="job_listings">
 					<?php
-										$wpq = mysqli_query($con,"select * from tbl_workermaster")or die("Erro WPQ".mysqli_error($con));
+						if(isset($_GET['worker']))
+						{
+							$worker = $_GET['worker'];
+							$wpq = mysqli_query($con,"select * from tbl_workermaster where worker_id='{$worker}'")or die("Erro WPQ".mysqli_error($con));
+						}else
+						{
+							$wpq = mysqli_query($con,"select * from tbl_workermaster")or die("Erro WPQ".mysqli_error($con));
+						}
+										
 										while($wpfr = mysqli_fetch_array($wpq))
 										{
 											
@@ -308,7 +317,10 @@ if(!isset($_SESSION['uid']))
 									</div>
 									<div class="location">
 										<i class="fa fa-location-arrow"></i> <?php 
-										$apsq = mysqli_query($con,"select area_name from tbl_area where area_id='{$wpfr['area_id']}'")or die("Erro APSQ".mysqli_error($con));
+										
+											$apsq = mysqli_query($con,"select * from tbl_area where area_id='{$wpfr['area_id']}'")or die("Erro APSQ".mysqli_error($con));
+										
+										
 										while($apfr=mysqli_fetch_array($apsq))
 										{
 											echo $apfr['area_name'];
